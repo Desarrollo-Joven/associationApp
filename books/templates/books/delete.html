@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<p>
+  <strong>Title:</strong>
+  {{book.title}}
+</p>
+
+<p>
+  <strong>Content:</strong>
+  {{book.content}}
+</p>
+<form action="{% url 'books:delete' book.id %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete">
+</form>
+
+<br>
+
+<a href="{% url 'books:index' %}">Back</a>
+{% endblock %}
